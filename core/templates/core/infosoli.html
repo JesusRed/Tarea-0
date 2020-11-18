@@ -1,0 +1,72 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block nav %}
+    <li><a href="{% url 'misPqr'%}">Mis PQR</a></li>
+    <li><a href="{% url 'newPqr'%}">Crear PQR</a></li>
+{% endblock %}
+
+{% block content %}       
+    <main>
+        <!--FORMULARIOS-->
+        <div id="formulariopqr" class="container white z-depth-5">
+
+            </ul>
+            <div id="" class="col s12">
+                <form class="col s12" parent="_blank">
+                    <div class="form-container">
+                        <div class="row">
+                            <blockquote>
+                                <h4>Información de la solicitud</h4>
+                            </blockquote>
+                            <h5 class="text-bold">- Asunto</h5>
+                            <p class="flow-text">asunto</p>
+                            <h5 class="text-bold">- Tipo</h5>
+                            <p class="flow-text">tipo de solicitud</p>
+                            <h5 class="text-bold">- Estado</h5>
+                            <p class="flow-text">estado del pqr</p>
+                            <h5 class="text-bold">- Descripcion</h5>
+                            <p class="flow-text">descripcion de la solicitud</p>
+                        </div>
+                        <div class="row">
+                            <blockquote>
+                                <h4>Anotaciones
+                                    <div class="right">
+                                        <a class="btn-floating btn-large waves-effect waves-light red modal-trigger"
+                                            href="#modal1"><i class="material-icons">add</i></a>
+                                    </div>
+                                </h4>
+                            </blockquote>
+                            <div id="modal1" class="modal">
+                                <div class="modal-content">
+                                    <h4>Nueva anotacion</h4>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                            <label for="textarea1">Redacte su solicitud</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agregar</a>
+                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                                </div>
+                            </div>
+                            <p class="flow-text">
+                                listado de anotaciones
+                            </p>
+                        </div>
+                        <div class="row">
+                            <blockquote>
+                                <h6>
+                                    Tiene problemas con su solicitud? <a href="">Reabrir solicitud</a> 
+                                </h6>
+                            </blockquote>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}

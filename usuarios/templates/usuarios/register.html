@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block nav %}
+    <li><a href="{% url 'login' %}">Ingresar</a></li>
+{% endblock %}
+
+{% block content %}  
+
+    <main>
+
+        <!--FORMULARIOS-->
+        <div id="formulario" class="container white z-depth-2">
+            <ul class="col s12 tabs red darken-3">
+                <li class="tab col s3"><a class="white-text ">Registrar Usuario</a></li>
+            </ul>
+            <div id="login" class="col s12">
+                <form class="col s12" action="" method="POST">               
+                    {% csrf_token %}
+                    <div class="form-container">
+                        <div class="row">
+                            <div class="input-field col s12">
+                             {{form.name}}
+                                {% comment %} <input name="text" type="text" class="validate">Nombre <label for="text"> {% endcomment %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                {% comment %} <input name="text" type="text" class="validate">Email <label for="text"> {% endcomment %}
+                                {{form.email}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                {% comment %} <input name="password" type="password" class="validate">Contraseña {% endcomment %}
+                                {{form.password}}
+                            </div>
+                        </div>
+
+                        {{form.errors}}
+                        <br>
+                        <center>
+                            <button type="submit" class="waves-effect waves-light btn red darken-3">REGISTRARSE</button>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}

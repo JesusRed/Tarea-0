@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   {% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sistema PQR</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/color/48/000000/service-bell.png" type="image/png">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- CABEZA DE PAGINA -->
+    <header>
+        <!--ENCABEZADO GENERAL-->
+        <div class="navbar-fixed">
+            <nav class="nav-extended red darken-4">
+                <div class="nav-wrapper red darken-2 navbar-fixed">
+                    <a href="{% url 'login' %}" class="brand-logo"><i class="material-icons">contact_mail</i>PQRs</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        {% block nav %}{% endblock %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+     {% block content %} {% endblock %}
+        
+    <!-- PIE DE PAGINA -->
+    <footer id="footer" class="page-footer red darken-2">
+        <div class="footer-copyright red darken-4">
+            <div class="container">
+                2019 © All Rights Reserved. Desarrollado por: Ing. Sistemas<a class="grey-text text-lighten-4 right"
+                    href="#!">Social media</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="{% static 'core/js/function.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

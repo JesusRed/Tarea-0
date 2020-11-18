@@ -1,0 +1,83 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block nav %}
+    <li><a href="{% url 'misPqr'%}">Mis PQR</a></li>
+    <li><a href="{% url 'newPqr'%}">Crear PQR</a></li>
+{% endblock %}
+
+{% block content %}
+
+		{% for message in messages %}
+					<p id="messages">{{ message }}</p>
+		{% endfor %}
+    <main>        
+        <!--FORMULARIOS-->
+        <div id="formulariopqr" class="container white z-depth-5">
+
+            </ul>
+            <div id="login" class="col s12">
+                <form class="col s12" action="" parent="_blank" method="POST" runat="server">
+                    <div class="form-container">
+                        <h3>PQRs Registradas</h3>
+                        <div class="row">
+                            <div class="input-field col l3 s6">
+                                <select>
+                                    <option value="" disabled selected>Tipo...</option>
+                                    <option value="1">Peticion</option>
+                                    <option value="2">Queja</option>
+                                    <option value="3">Reclamo</option>
+                                </select>
+                                <label>Tipo de Solicitud</label>
+                            </div>
+                            <div class="input-field col l3 s6">
+                                <select>
+                                    <option value="" disabled selected>Tipo...</option>
+                                    <option value="1">Peticion</option>
+                                    <option value="2">Queja</option>
+                                    <option value="3">Reclamo</option>
+                                </select>
+                                <label>Estado de la Solicitud</label>
+                            </div>
+                            <div class="input-field col l3 s6">
+                                <input id="birthdate" type="text" class="datepicker">
+                                <label for="birthdate">Fecha de respuesta</label>
+                            </div>
+                            <div class="input-field col l3 s6">
+                                <input id="birthdate" type="text" class="datepicker">
+                                <label for="birthdate">Fecha de creacion</label>
+                            </div>    
+                        </div>
+                        <div id="tabla" class="row">
+                            <table class="centered highlight responsive-table">
+                                <thead>
+                                  <tr>
+                                      <th>Asunto</th>
+                                      <th>Tipo</th>
+                                      <th>Estado</th>
+                                      <th>Fecha</th>
+                                  </tr>
+                                </thead>
+                        
+                                <tbody>
+                                    {% for obj in pqrs %}
+                                  <tr>
+                                    <td>{{obj.subject}}</td>
+                                    <td>{{obj.tipo}}</td>
+                                    <td>{{obj.state}}</td>
+                                    <td>{{obj.create_at}}</td>
+                                  </tr>
+                                    {% endfor %}
+   
+                                </tbody>
+                              </table>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}
